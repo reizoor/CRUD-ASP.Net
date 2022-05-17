@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="RegistroHorasModelStoreContainer" CdmEntityContainer="RegistroHorasEntities">
+    <EntitySetMapping Name="Empresa">
+      <EntityTypeMapping TypeName="RegistroHorasModel.Empresa">
+        <MappingFragment StoreEntitySet="Empresa">
+          <ScalarProperty Name="IdCatEmpresa" ColumnName="IdCatEmpresa" />
+          <ScalarProperty Name="NombreEmpresa" ColumnName="NombreEmpresa" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RegistroHoras">
+      <EntityTypeMapping TypeName="RegistroHorasModel.RegistroHoras">
+        <MappingFragment StoreEntitySet="RegistroHoras">
+          <ScalarProperty Name="IdControlHora" ColumnName="IdControlHora" />
+          <ScalarProperty Name="FechaCaptura" ColumnName="FechaCaptura" />
+          <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+          <ScalarProperty Name="HorasTotales" ColumnName="HorasTotales" />
+          <ScalarProperty Name="IdCatEmpresa" ColumnName="IdCatEmpresa" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

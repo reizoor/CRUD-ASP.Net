@@ -1,0 +1,51 @@
+﻿@model RegistroHorasPage.Models.RegistroHoras
+
+@{
+    ViewBag.Title = "Detalles";
+}
+
+<h2>Detalles</h2>
+
+<div>
+    <h4>Registro de Horas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.LabelFor(model => model.FechaCaptura,"Fecha de captura")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCaptura)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.Fecha, "Fecha")
+
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.HorasTotales, "Horas totales")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HorasTotales)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.Empresa.NombreEmpresa, "Nombre de la empresa")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empresa.NombreEmpresa)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.IdControlHora }) |
+    @Html.ActionLink("Regresar a la lista", "Index")
+</p>

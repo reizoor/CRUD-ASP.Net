@@ -1,0 +1,56 @@
+﻿@model RegistroHorasPage.Models.RegistroHoras
+
+@{
+    ViewBag.Title = "Eliminar";
+}
+
+<h2>Eliminar</h2>
+
+<h3>¿Esta seguro de querer eliminar esto?</h3>
+<div>
+    <h4>Registro de Horas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.LabelFor(model => model.FechaCaptura, "Fecha de captura")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaCaptura)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.Fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.HorasTotales, "Horas totales")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HorasTotales)
+        </dd>
+
+        <dt>
+            @Html.LabelFor(model => model.Empresa.NombreEmpresa, "Nombre de la Empresa")
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Empresa.NombreEmpresa)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" /> |
+            @Html.ActionLink("Regresar a la lista", "Index")
+        </div>
+    }
+</div>

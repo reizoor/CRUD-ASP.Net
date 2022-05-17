@@ -1,0 +1,39 @@
+﻿@model IEnumerable<RegistroHorasPage.Models.Empresa>
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<h2>Inicio</h2>
+
+<p>
+    @Html.ActionLink("Crear Nueva Empresa", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NombreEmpresa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NombreEmpresa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdCatEmpresa }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.IdCatEmpresa }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdCatEmpresa })
+        </td>
+    </tr>
+}
+
+</table>

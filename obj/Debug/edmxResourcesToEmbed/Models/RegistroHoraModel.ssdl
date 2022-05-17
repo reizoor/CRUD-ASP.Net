@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="RegistroHorasModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Empresa">
+    <Key>
+      <PropertyRef Name="IdCatEmpresa" />
+    </Key>
+    <Property Name="IdCatEmpresa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreEmpresa" Type="nchar" MaxLength="30" />
+    <Property Name="Descripcion" Type="text" />
+  </EntityType>
+  <EntityType Name="RegistroHoras">
+    <Key>
+      <PropertyRef Name="IdControlHora" />
+    </Key>
+    <Property Name="IdControlHora" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FechaCaptura" Type="date" />
+    <Property Name="Fecha" Type="date" />
+    <Property Name="HorasTotales" Type="numeric" Precision="10" Scale="0" />
+    <Property Name="IdCatEmpresa" Type="int" />
+  </EntityType>
+  <Association Name="FK__RegistroH__IdCat__2B3F6F97">
+    <End Role="Empresa" Type="Self.Empresa" Multiplicity="0..1" />
+    <End Role="RegistroHoras" Type="Self.RegistroHoras" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Empresa">
+        <PropertyRef Name="IdCatEmpresa" />
+      </Principal>
+      <Dependent Role="RegistroHoras">
+        <PropertyRef Name="IdCatEmpresa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="RegistroHorasModelStoreContainer">
+    <EntitySet Name="Empresa" EntityType="Self.Empresa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RegistroHoras" EntityType="Self.RegistroHoras" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__RegistroH__IdCat__2B3F6F97" Association="Self.FK__RegistroH__IdCat__2B3F6F97">
+      <End Role="Empresa" EntitySet="Empresa" />
+      <End Role="RegistroHoras" EntitySet="RegistroHoras" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

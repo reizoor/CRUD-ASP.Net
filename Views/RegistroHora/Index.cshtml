@@ -1,0 +1,51 @@
+﻿@model IEnumerable<RegistroHorasPage.Models.RegistroHoras>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Inicio</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo Registro", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Fecha de Captura")
+        </th>
+        <th>
+            @Html.DisplayName("Fecha")
+        </th>
+        <th>
+            @Html.DisplayName("Horas Totales")
+        </th>
+        <th>
+            @Html.DisplayName("Nombre de la Empresa")
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FechaCaptura)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HorasTotales)
+        </td>
+        <td>
+            @Html.ActionLink(item.Empresa.NombreEmpresa, "Details/"+item.Empresa.IdCatEmpresa.ToString(),"Empresa")
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.IdControlHora }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.IdControlHora }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.IdControlHora })
+        </td>
+    </tr>
+}
+
+</table>
